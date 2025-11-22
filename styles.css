@@ -1,31 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    background: #f7f7f7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-h1 {
-    margin-bottom: 20px;
+#container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 650px;
+  width: 100%;
+  padding: 40px;
 }
 
-input {
-    padding: 8px;
-    width: 250px;
-    margin-right: 10px;
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #e53e3e;
 }
 
-button {
-    padding: 8px 15px;
-    background: #0077cc;
-    border: none;
-    color: white;
-    cursor: pointer;
+header h1 {
+  font-size: 2em;
+  color: #2d3748;
+}
+
+#search-area label {
+  display: block;
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+#searchField {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #cbd5e0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+#searchField:focus {
+  outline: none;
+  border-color: #e53e3e;
+}
+
+#search {
+  width: 100%;
+  padding: 12px;
+  background: #e53e3e;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+#search:hover {
+  background: #c53030;
+}
+
+h2 {
+  color: #2d3748;
+  font-weight: 700;
+  margin: 25px 0 15px 0;
+  padding-left: 10px;
+  border-left: 4px solid #e53e3e;
 }
 
 #result {
-    margin-top: 30px;
-    padding: 15px;
-    background: white;
-    border-radius: 5px;
-    min-height: 50px;
+  background: #f7fafc;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 100px;
+  border: 1px solid #e2e8f0;
 }
+
+#result h3 { font-size: 1.3em; margin-bottom: 5px; }
+#result h4 { color: #4a5568; margin-bottom: 10px; }
+#result p { line-height: 1.6; }
+#result li { padding: 8px; margin-bottom: 5px; border-left: 3px solid #e53e3e; }

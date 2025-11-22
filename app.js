@@ -1,34 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("btnSearch");
-    const resultDiv = document.getElementById("result");
+document.addEventListener('DOMContentLoaded', () => {
+  const button = document.getElementById('search');
+  const resultDiv = document.getElementById('result');
+  const searchField = document.getElementById('searchField');
 
-    btn.addEventListener("click", () => {
-        let query = document.getElementById("search").value.trim();
+  button.addEventListener('click', () => {
+    let query = searchField.value.trim();
+    query = encodeURIComponent(query);
 
-        // Sanitize input
-        query = query.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const url = query ? `superheroes.php?query=${query}` : 'superheroes.php';
 
-        // Build URL with query param
-        let url = "superheroes.php";
-        if (query.length > 0) {
-            url += "?query=" + encodeURIComponent(query);
-        }
-
-        // Fetch data from PHP
-        fetch(url)
-        .then(response => response.text())
-        .then(data => {
-
-            // Exercise 2: If no search, show an alert with list
-            if (query.length === 0) {
-                alert(data);
-            }
-
-            // Exercise 3: Put results in the result div
-            resultDiv.innerHTML = data;
-        })
-        .catch(error => {
-            resultDiv.innerHTML = "Error fetching superheroes.";
-        });
-    });
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        resultDiv.innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        resultDiv.innerHTML = '<p>There was an error fetching data.</p>';
+      });
+  });
 });
